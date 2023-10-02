@@ -1,0 +1,1 @@
+export {getSanitySvgImageUrl} from "./getSanitySvgImageUrl";
