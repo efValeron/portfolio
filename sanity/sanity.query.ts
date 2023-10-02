@@ -7,6 +7,7 @@ export async function getProfile() {
       _id,
       fullName,
       headline,
+      skills,
     }`
   );
 }
