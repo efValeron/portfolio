@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.welcome-heading {
-  @apply font-extrabold drop-shadow-light-glow dark:drop-shadow-dark-glow
+* {
+  box-sizing: border-box;
+}
+
+.glowing {
+  @apply drop-shadow-light-glow dark:drop-shadow-dark-glow
 }
 
 .text-gradient {
