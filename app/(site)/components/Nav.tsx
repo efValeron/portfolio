@@ -11,6 +11,7 @@ export const Nav = () => {
   const isHome = pathname === "/"
   const isAbout = pathname === "/about"
   const isProjects = pathname === "/projects"
+  const isContact = pathname === "/contact"
 
   return (
     <Navbar className="fixed top-0 left-0 right-0 z-10" isBordered>
@@ -31,6 +32,11 @@ export const Nav = () => {
         <NavbarItem isActive={isProjects}>
           <Link isBlock color={isProjects ? "primary" : "foreground"} href="/projects" as={NextLink}>
             Projects
+          </Link>
+        </NavbarItem>
+        <NavbarItem isActive={isContact}>
+          <Link isBlock color={isContact ? "primary" : "foreground"} href="/contact" as={NextLink}>
+            Contact
           </Link>
         </NavbarItem>
       </NavbarContent>
