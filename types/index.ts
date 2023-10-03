@@ -1,8 +1,16 @@
 export type Profile = {
   _id: string
   fullName: string
+  specialization: string
   headline: string
+  shortBio: string
+  socialLinks: SocialLink[]
   skills: Skill[]
+}
+export type SocialLink = {
+  _key: string
+  title: string
+  url: string
 }
 export type Skill = {
   _key: string
@@ -10,10 +18,8 @@ export type Skill = {
   theme?: "light" | "dark"
   homePageUrl: string
   image: {
-    _type: string
     asset: {
       _ref: string
-      _type: string
     }
   }
 }

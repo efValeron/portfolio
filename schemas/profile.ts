@@ -1,4 +1,4 @@
-import {defineField} from "sanity";
+import {defineArrayMember, defineField} from "sanity";
 
 const profile = {
   name: "profile",
@@ -12,6 +12,13 @@ const profile = {
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "specialization",
+      title: "Specialization",
+      type: "string",
+      description: "What do you specialize in?",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: "headline",
       title: "Headline",
       type: "string",
@@ -19,39 +26,69 @@ const profile = {
       validation: (Rule) => Rule.required().min(30).max(50),
     }),
     defineField({
+      name: "shortBio",
+      title: "Short Bio",
+      type: "text",
+      rows: 4,
+    }),
+    defineField({
+      name: "socialLinks",
+      title: "Social Links",
+      type: "array",
+      description: "Add your social media links:",
+      validation: (Rule) => Rule.required(),
+      of: [defineArrayMember({
+        type: "object",
+        fields: [
+          {
+            name: "title",
+            title: "Title",
+            type: "string",
+            validation: (Rule) => Rule.required(),
+          },
+          {
+            name: "url",
+            title: "Url",
+            type: "url",
+            validation: (Rule) => Rule.required(),
+          },
+        ]
+      })],
+    }),
+    defineField({
       name: "skills",
       title: "Skills",
       type: "array",
       description: "What skills do you have?",
       validation: (Rule) => Rule.required(),
-      of: [{
+      of: [defineArrayMember({
         type: "object",
         fields: [
           {
             name: "title",
-            title: "Skill title",
+            title: "Title",
             type: "string",
             validation: (Rule) => Rule.required(),
           },
           {
             name: "theme",
-            title: "Skill theme",
+            title: "Theme",
             type: "string",
           },
           {
             name: "homePageUrl",
-            title: "Skill home page url",
+            title: "Home page url",
             type: "url",
             validation: (Rule) => Rule.required(),
           },
           {
             name: "image",
-            title: "Skill image",
+            title: "Image",
             type: "image",
             validation: (Rule) => Rule.required(),
           },
         ]
-      }],
+      })],
     }),
   ],
 };
