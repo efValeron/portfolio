@@ -35,19 +35,18 @@ export const WelcomeSec = () => {
             initial={{opacity: 0, y: 20}}
             animate={{opacity: 1, y: 0}}
             transition={{duration: 1}}
-            className="text-5xl mt-4 welcome-heading text-gradient">
+            className="text-5xl mt-4 welcome-heading">
             <TypeAnimation
               sequence={[
                 1000,
                 profile.fullName,
                 1000,
-                // profile.specialization,
                 "Front-End Developer",
               ]}
               wrapper="span"
               speed={10}
               deletionSpeed={50}
-              preRenderFirstString
+              // preRenderFirstString
               repeat={Infinity}
             />
           </motion.h2>
