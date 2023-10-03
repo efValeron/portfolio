@@ -29,12 +29,12 @@ const config: Config = {
         light: {
           colors: {
             background: "#ECEDEE", // or DEFAULT
-            foreground: "#11181C", // or 50 to 900 DEFAULT
+            foreground: "#18181b", // or 50 to 900 DEFAULT
           }
         },
         dark: {
           colors: {
-            background: "#11181C", // or DEFAULT
+            background: "#18181b", // or DEFAULT
             foreground: "#ECEDEE", // or 50 to 900 DEFAULT
           }
         },
