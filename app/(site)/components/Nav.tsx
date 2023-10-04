@@ -14,7 +14,7 @@ export const Nav = () => {
   const isContact = pathname === "/contact"
 
   return (
-    <Navbar className="fixed top-0 left-0 right-0 z-10" isBordered>
+    <Navbar className="fixed top-0 left-0 right-0 z-50" isBordered>
       <NavbarBrand>
         <p className="font-bold text-inherit">ACME</p>
       </NavbarBrand>
