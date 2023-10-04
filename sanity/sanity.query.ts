@@ -18,6 +18,12 @@ export async function getProfileForAbout() {
   return client.fetch(
     groq`*[_type == "profile"]{
       _id,
+      fullName,
+      location,
+      fullBio,
+      email,
+      profileImage {alt, "image": asset->url},
+      "resumeURL": resumeURL.asset->url,
       skills,
     }`
   );

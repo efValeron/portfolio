@@ -26,10 +26,45 @@ const profile = {
       validation: (Rule) => Rule.required().min(30).max(50),
     }),
     defineField({
+      name: "profileImage",
+      title: "Profile Image",
+      type: "image",
+      description: "Upload a profile picture",
+      options: { hotspot: true },
+      fields: [
+        {
+          name: "alt",
+          title: "Alt",
+          type: "string",
+        },
+      ],
+    }),
+    defineField({
       name: "shortBio",
       title: "Short Bio",
       type: "text",
       rows: 4,
+    }),
+    defineField({
+      name: "email",
+      title: "Email Address",
+      type: "string",
+    }),
+    defineField({
+      name: "location",
+      title: "Location",
+      type: "string",
+    }),
+    defineField({
+      name: "fullBio",
+      title: "Full Bio",
+      type: "array",
+      of: [{ type: "block" }],
+    }),
+    defineField({
+      name: "resumeURL",
+      title: "Upload Resume",
+      type: "file",
     }),
     defineField({
       name: "socialLinks",

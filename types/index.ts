@@ -1,3 +1,5 @@
+import {PortableTextBlock} from "sanity";
+
 export type Profile = {
   _id: string
   fullName: string
@@ -6,6 +8,14 @@ export type Profile = {
   shortBio: string
   socialLinks: SocialLink[]
   skills: Skill[]
+  profileImage: {
+    alt: string,
+    image: string
+  },
+  email: string,
+  fullBio: PortableTextBlock[],
+  location: string,
+  resumeURL: string,
 }
 export type SocialLink = {
   _key: string
