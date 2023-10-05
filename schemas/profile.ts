@@ -15,7 +15,7 @@ const profile = {
       name: "specialization",
       title: "Specialization",
       type: "string",
-      description: "What do you specialize in?",
+      description: "What do you specialize in? Better be under 20 characters!",
       validation: (rule) => rule.required(),
     }),
     defineField({
