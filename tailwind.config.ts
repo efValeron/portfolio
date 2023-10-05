@@ -14,6 +14,19 @@ const overrideColors = {
     700: "#936316",
     800: "#62420E",
     900: "#312107"
+  },
+  secondary: {
+    DEFAULT: "#ef4444",
+    50: "#fef2f2",
+    100: "#fee2e2",
+    200: "#fecaca",
+    300: "#fca5a5",
+    400: "#f87171",
+    500: "#ef4444",
+    600: "#dc2626",
+    700: "#b91c1c",
+    800: "#991b1b",
+    900: "#7f1d1d"
   }
 }
 
@@ -40,11 +53,12 @@ const config: Config = {
   },
   darkMode: "class",
   plugins: [
+    require('tailwindcss-debug-screens'),
     nextui({
       themes: {
         light: {
           colors: {
-            background: "#ECEDEE", // or DEFAULT
+            background: "#fafafa", // or DEFAULT
             foreground: "#18181b", // or 50 to 900 DEFAULT
             ...overrideColors
           }
@@ -52,7 +66,7 @@ const config: Config = {
         dark: {
           colors: {
             background: "#18181b", // or DEFAULT
-            foreground: "#ECEDEE", // or 50 to 900 DEFAULT
+            foreground: "#fafafa", // or 50 to 900 DEFAULT
             ...overrideColors
           }
         },
