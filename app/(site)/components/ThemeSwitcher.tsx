@@ -17,7 +17,7 @@ export const ThemeSwitcher = () => {
 
   return <Switch
     defaultSelected
-    size="lg"
+    size="md"
     color="primary"
     isSelected={theme === "light"}
     onValueChange={value => value ? setTheme('light') : setTheme('dark')}
