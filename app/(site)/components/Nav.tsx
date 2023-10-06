@@ -16,7 +16,7 @@ export const Nav = () => {
   const isContact = pathname === "/contact"
 
   return (
-    <Navbar className="fixed top-0 left-0 right-0 z-50" isBordered>
+    <Navbar className="fixed top-0 left-0 right-0 z-50" isBordered shouldHideOnScroll>
       <NavbarMenuToggle
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         className="sm:hidden"
@@ -51,20 +51,6 @@ export const Nav = () => {
       </NavbarContent>
 
       <NavbarMenu className="overflow-y-hidden">
-        {/*{menuItems.map((item, index) => (*/}
-        {/*  <NavbarMenuItem key={`${item}-${index}`}>*/}
-        {/*    <Link*/}
-        {/*      color={*/}
-        {/*        index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"*/}
-        {/*      }*/}
-        {/*      className="w-full"*/}
-        {/*      href="#"*/}
-        {/*      size="lg"*/}
-        {/*    >*/}
-        {/*      {item}*/}
-        {/*    </Link>*/}
-        {/*  </NavbarMenuItem>*/}
-        {/*))}*/}
         <NavbarItem isActive={isHome}>
           <Link isBlock color={isHome ? "primary" : "foreground"} href="/" as={NextLink}>
             Home
