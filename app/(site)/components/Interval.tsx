@@ -49,12 +49,12 @@ export const Interval = () => {
       initial={{opacity: 0, y: 20}}
       animate={{opacity: 1, y: 0}}
       transition={{duration: 1, delay: 1.25, ease: "backOut"}}
-      className={`grid grid-cols-2 ${totalYears > 0 ? "lg:grid-cols-3" : "lg:flex"} md:max-lg:flex 2xl:flex gap-2 w-full`}>
+      className={`grid grid-cols-3 ${totalYears === 0 ? "lg:flex" : ""} md:max-lg:flex 2xl:flex gap-2 w-full`}>
       {
         totalYears > 0 &&
         <IntervalCard key="years" gridLayout="col-span-2" title="Years" value={totalYears}/>
       }
-      <IntervalCard key="days" title="Days" value={totalDays}/>
+      <IntervalCard key="days" gridLayout="max-md:col-span-3" title="Days" value={totalDays}/>
       <IntervalCard key="hours" title="Hours" value={totalHours}/>
       <IntervalCard key="minutes" title="Minutes" value={totalMinutes}/>
       <IntervalCard key="seconds" title="Seconds" value={totalSeconds}/>
