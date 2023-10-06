@@ -36,7 +36,7 @@ export const WelcomeSec = () => {
               initial={{opacity: 0, y: 20}}
               animate={{opacity: 1, y: 0}}
               transition={{duration: 1, ease: "backOut"}}
-              className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-extrabold mt-2 lg:mt-4 glowing text-primary-600">
+              className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-extrabold mt-2 lg:mt-4 glowing text-primary-500">
               <TypeAnimation
                 sequence={[
                   1000,
@@ -71,7 +71,7 @@ export const WelcomeSec = () => {
               initial={{opacity: 0, y: 20}}
               animate={{opacity: 1, y: 0}}
               transition={{duration: 1, delay: 0.75, ease: "backOut"}}
-              className="mt-5 md:mt-10 flex gap-2 flex-col md:flex-row">
+              className="mt-5 md:mt-10 flex gap-2 flex-wrap max-md:justify-center">
               <SocialLinks socialLinks={profile.socialLinks}/>
             </motion.div>
           </div>
@@ -91,11 +91,10 @@ export const WelcomeSec = () => {
               animate={{opacity: 1, y: 0}}
               transition={{duration: 1, delay: 1.5, ease: "backOut"}}
               className="text-lg lg:text-xl font-medium text-center mt-10 mb-5 lg:mt-12 lg:mb-8"
-            >These pictures
-              seem familiar to me:
+            >Skills Overview:
             </motion.h4>
             <div className="flex justify-center">
-              <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2">
+              <div className="grid grid-cols-5 sm:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10 gap-2">
                 <Skills skills={profile.skills}/>
               </div>
             </div>
@@ -108,7 +107,16 @@ export const WelcomeSec = () => {
 
 const SocialLinks = ({socialLinks}: { socialLinks: Profile["socialLinks"] }) => {
   return socialLinks.map((link) =>
-    <Link key={link._key} isBlock showAnchorIcon color="foreground" href={link.url} target="_blank" as={NextLink}>
+    <Link
+      key={link._key}
+      isBlock
+      showAnchorIcon
+      color="foreground"
+      href={link.url}
+      isExternal
+      as={NextLink}
+      size="sm"
+    >
       {link.title}
     </Link>
   )
