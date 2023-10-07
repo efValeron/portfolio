@@ -6,14 +6,36 @@ import NextLink from "next/link";
 import {usePathname} from "next/navigation";
 import {useState} from "react";
 
+interface menuItemsI {
+  path: string
+  label: string
+}
+
 export const Nav = () => {
   const pathname = usePathname();
   const [isMenuOpen] = useState(false);
 
-  const isHome = pathname === "/"
-  const isAbout = pathname === "/about"
-  const isProjects = pathname === "/projects"
-  const isContact = pathname === "/contact"
+  const menuItems: menuItemsI[] = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/projects", label: "Projects" },
+    { path: "/contact", label: "Contact" },
+  ];
+
+  const renderMenuItems = (item: menuItemsI) => (
+    <NavbarItem isActive={pathname === item.path} key={item.path} className="max-sm:mt-2">
+      <Link
+        isBlock
+        color={pathname === item.path ? "primary" : "foreground"}
+        href={item.path}
+        as={NextLink}
+        size="lg"
+        className="max-sm:w-full"
+      >
+        {item.label}
+      </Link>
+    </NavbarItem>
+  );
 
   return (
     <Navbar className="fixed top-0 left-0 right-0 z-50" isBordered shouldHideOnScroll>
@@ -25,52 +47,14 @@ export const Nav = () => {
         <p className="font-bold text-inherit">DEValeron</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-6" justify="center">
-        <NavbarItem isActive={isHome}>
-          <Link isBlock color={isHome ? "primary" : "foreground"} href="/" as={NextLink}>
-            Home
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive={isAbout}>
-          <Link isBlock color={isAbout ? "primary" : "foreground"} href="/about" as={NextLink}>
-            About
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive={isProjects}>
-          <Link isBlock color={isProjects ? "primary" : "foreground"} href="/projects" as={NextLink}>
-            Projects
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive={isContact}>
-          <Link isBlock color={isContact ? "primary" : "foreground"} href="/contact" as={NextLink}>
-            Contact
-          </Link>
-        </NavbarItem>
+        {menuItems.map(renderMenuItems)}
       </NavbarContent>
       <NavbarContent justify="end">
-        <ThemeSwitcher/>
+        <ThemeSwitcher />
       </NavbarContent>
 
       <NavbarMenu className="overflow-y-hidden">
-        <NavbarItem isActive={isHome}>
-          <Link isBlock color={isHome ? "primary" : "foreground"} href="/" as={NextLink}>
-            Home
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive={isAbout}>
-          <Link isBlock color={isAbout ? "primary" : "foreground"} href="/about" as={NextLink}>
-            About
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive={isProjects}>
-          <Link isBlock color={isProjects ? "primary" : "foreground"} href="/projects" as={NextLink}>
-            Projects
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive={isContact}>
-          <Link isBlock color={isContact ? "primary" : "foreground"} href="/contact" as={NextLink}>
-            Contact
-          </Link>
-        </NavbarItem>
+        {menuItems.map(renderMenuItems)}
       </NavbarMenu>
     </Navbar>
   );
