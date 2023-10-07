@@ -54,7 +54,7 @@ export const Interval = () => {
         totalYears > 0 &&
         <IntervalCard key="years" gridLayout="col-span-2" title="Years" value={totalYears}/>
       }
-      <IntervalCard key="days" gridLayout="max-md:col-span-3" title="Days" value={totalDays}/>
+      <IntervalCard key="days" gridLayout={totalYears === 0 ? "max-md:col-span-3" : ""} title="Days" value={totalDays}/>
       <IntervalCard key="hours" title="Hours" value={totalHours}/>
       <IntervalCard key="minutes" title="Minutes" value={totalMinutes}/>
       <IntervalCard key="seconds" title="Seconds" value={totalSeconds}/>
