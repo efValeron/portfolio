@@ -1,4 +1,4 @@
-import {ContactSec} from "@/app/(site)/components/ContactSec"
+import {ContactSec} from "@/app/(site)/contact/components/ContactSec"
 
 export default function Home() {
   return (

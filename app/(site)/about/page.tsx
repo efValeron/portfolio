@@ -1,4 +1,4 @@
-import {AboutSec} from "@/app/(site)/components/AboutSec";
+import {AboutSec} from "@/app/(site)/about/components/AboutSec";
 
 export default function About() {
   return (
@@ -7,5 +7,5 @@ export default function About() {
         <AboutSec/>
       </section>
     </main>
-  );
+  )
 }
