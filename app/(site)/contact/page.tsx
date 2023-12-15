@@ -1,6 +1,7 @@
 import {ContactSec} from "@/app/(site)/contact/components/ContactSec"
+import { isProtected } from "@/app/(site)/isProtected"
 
-export default function Home() {
+function Contact() {
   return (
     <main>
       <section className="flex h-screen flex-col items-center justify-center">
@@ -9,3 +10,5 @@ export default function Home() {
     </main>
   )
 }
+
+export default isProtected(Contact, "underMaintenance")

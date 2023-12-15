@@ -1,6 +1,7 @@
-import {AboutSec} from "@/app/(site)/about/components/AboutSec";
+import { AboutSec } from "@/app/(site)/about/components/AboutSec"
+import { isProtected } from "@/app/(site)/isProtected"
 
-export default function About() {
+function About() {
   return (
     <main>
       <section className="flex min-h-screen py-32 flex-col items-center justify-center">
@@ -9,3 +10,5 @@ export default function About() {
     </main>
   )
 }
+
+export default isProtected(About, "underMaintenance")
