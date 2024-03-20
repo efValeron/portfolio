@@ -1,9 +1,6 @@
 import "../globals.css"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import { Providers } from "@/app/(site)/providers"
-import { Nav } from "@/app/(site)/components/Nav"
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: [ "latin" ] })
 
@@ -19,12 +16,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-    <body className={`${inter.className} ${process.env.NODE_ENV === "development" ? "debug-screens" : ""}`}>
-    <Providers>
-      <SpeedInsights/>
-      <Nav/>
-      {children}
-    </Providers>
+    <body className={`${inter.className} ${process.env.NODE_ENV === "development" ? "debug-screens" : ""} flex flex-col`}>
+    {children}
     </body>
     </html>
   )

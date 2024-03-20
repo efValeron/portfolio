@@ -1,77 +1,80 @@
-import type {Config} from 'tailwindcss'
-import {nextui} from "@nextui-org/react"
+import type { Config } from "tailwindcss"
 
-const overrideColors = {
-  primary: {
-    DEFAULT: "#F5A524",
-    50: "#FEFCE8",
-    100: "#FDEDD3",
-    200: "#FBDBA7",
-    300: "#F9C97C",
-    400: "#F7B750",
-    500: "#F5A524",
-    600: "#C4841D",
-    700: "#936316",
-    800: "#62420E",
-    900: "#312107"
-  },
-  secondary: {
-    DEFAULT: "#ef4444",
-    50: "#fef2f2",
-    100: "#fee2e2",
-    200: "#fecaca",
-    300: "#fca5a5",
-    400: "#f87171",
-    500: "#ef4444",
-    600: "#dc2626",
-    700: "#b91c1c",
-    800: "#991b1b",
-    900: "#7f1d1d"
-  }
-}
-
-const config: Config = {
+const config = {
+  darkMode: ["class"],
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
-  ],
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
+	],
+  prefix: "",
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
-      dropShadow: {
-        "dark-glow": [
-          "0 0px 20px rgba(236,237,238, 0.25)", // - light background color
-          "0 0px 65px rgba(236,237,238, 0.1)"   // - light background color
-        ],
-        "light-glow": [
-          "0 0px 20px rgba(17,24,28, 0.25)", // - light foreground color
-          "0 0px 65px rgba(17,24,28, 0.1)"    // - light foreground color
-        ],
-      }
-    }
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+    },
   },
-  darkMode: "class",
-  plugins: [
-    require('tailwindcss-debug-screens'),
-    nextui({
-      themes: {
-        light: {
-          colors: {
-            background: "#fafafa", // or DEFAULT
-            foreground: "#18181b", // or 50 to 900 DEFAULT
-            ...overrideColors
-          }
-        },
-        dark: {
-          colors: {
-            background: "#18181b", // or DEFAULT
-            foreground: "#fafafa", // or 50 to 900 DEFAULT
-            ...overrideColors
-          }
-        },
-      }
-    })
-  ]
-}
+  plugins: [require("tailwindcss-animate")],
+} satisfies Config
+
 export default config
